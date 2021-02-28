@@ -1,13 +1,13 @@
 # NLMeans-CUDA
 This project implements the well-known Non-local means algorithm that is used for Image Denoising, both in a CPU version (for comparison purposes) and (most interestingly) in a CUDA version that takes advantage of the higher computing capabilities of a GPGPU for this type of problems compared to a conventional multicore CPU. The project was developed for the purposes of the course "Parallel and Distributed Systems", ECE AUTh.
 
-Below is a presentation of each version in more detail (Further explanations on how to execute each version and how code works is given on the report.pdf):
+Below is a presentation of each version in more detail (Further explanations on how to execute each version and how code works are given on the report.pdf):
 
 `Sequential Version`: Implementation of Non-local means on CPU
 
 `Multithreaded Version`: Parallel Implementation of Non-local means on CPU using multiple cores with OpenMP library (default thread count is set to 4)
 
-`V1 Version`: CUDA Implementation of Non-local means with CUDA using only GPU's global memory during computations
+`V1 Version`: CUDA Implementation of Non-local means using only GPU's global memory during computations
 
 `V2 Version`: CUDA implementation of Non-local means that stores Gaussian Kernel on constant memory and also takes advantage of shared memory that GPU provides
 
@@ -103,7 +103,7 @@ Patch size [`7x7`]
 | Cuda Shared | 60 ms | 274 ms | 1418 ms |
 
 ## Correctness - Validation
-The correctness of the output image that each version produces can be checked in the site <a id="1/">https://online-image-comparison.com/</a> by uploading the image that each version produces (If 2 images are the same the result should not show any red signs - Insert a small 'Fuzz' value to detect even small differences). To verify the equality of two images with C simply run:
+The correctness of the output image that each version produces can be checked on the site <a id="1/">https://online-image-comparison.com/</a> by uploading the image that each version produces (If 2 images are the same the result should not show any red signs - Insert a small 'Fuzz' value to detect even small differences). To verify the equality of two images with C simply run:
 
     make validation
 
